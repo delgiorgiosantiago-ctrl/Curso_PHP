@@ -366,8 +366,27 @@
                 código a ejecutar
             } 
             */
-            
 
+            $resultado = 0;
+            for ($i = 0; $i <= 100; $i++) { 
+                $resultado += $i;
+            }
+            echo "<h3>El resultado es: $resultado</h3>";
+            echo "<br/>";
+
+            // Ejemplo tabla de multiplicar
+            if (isset($_GET['numero'])) {  // Comprueba si la variable existe
+                $numero = (int)$_GET['numero']; // Convierte la variable a entero
+            } else {
+                $numero = 1;
+            }
+
+            echo "<h3>Tabla de multiplicar del numero $numero</h3>";
+            for ($contador = 1; $contador <= 10; $contador++) {
+                $resultado = $numero * $contador;
+                echo "<h4>$numero x $contador = $resultado</h4>";
+            }
+            echo "<br/>";
 
         ?>
 
