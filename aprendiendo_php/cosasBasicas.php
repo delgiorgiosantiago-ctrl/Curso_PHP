@@ -386,7 +386,42 @@
                 $resultado = $numero * $contador;
                 echo "<h4>$numero x $contador = $resultado</h4>";
             }
-            echo "<br/>";
+            echo "<hr/>";
+        ?>
+
+        <!-- Funciones --------------------------------------------------------------------->
+        <?php
+        // Funciones
+        // Una función es un bloque de código que se puede reutilizar
+        /* function nombreDeLaFuncion($parametro1, $parametro2) {
+            instrucciones a ejecutar
+            return devuelve un valor
+        } */
+
+        echo "<h1>Funciones:</h1>";
+        function muestraNombres(){
+            echo "<h3>Victor Robles</h3>";
+            echo "<h3>David Perez</h3>";
+            echo "<h3>Juan Gomez</h3>";
+        }   
+        
+        muestraNombres(); // Llamada a la función
+        echo "<br/>";
+
+        // Ejeplo 2
+        function tabla($numero){
+            echo "<h3>Tabla de multiplicar del numero $numero</h3>";
+            for ($contador = 1; $contador <= 10; $contador++) {
+                $resultado = $numero * $contador;
+                echo "<h4>$numero x $contador = $resultado</h4>";
+            }
+        }
+        tabla(5); // Llamada a la función
+
+        for ($i=0; $i <= 3 ; $i++) { 
+            tabla($i); // Llamada a la función
+        }
+        echo "<hr/>";
 
         ?>
 
