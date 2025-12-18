@@ -1,3 +1,4 @@
+<!-- Ejercicios Bloque 1 -->    
 <?php
 // Ejercicio 1 
 // Crear dos variables, una para el país y otra para el continente, y mostrar su valor por pantalla (imprimir por pantalla "El país es X y está en el continente Y") 
@@ -109,4 +110,16 @@ if (isset($_GET['numero1']) && isset($_GET['numero2'])) {
     echo "Por favor, proporciona los números numero1 y numero2 en la URL.<br>";
 }
 echo "<hr><br>";
+?>
 
+<!-- Ejercicios Bloque 2 --> 
+<?php
+// Ejercicio 1
+/*
+Hacer un programa en PHP que tenga un array con 8 numeros enteros
+y que haga lo siguiente:
+- Recorrerlo y mostrarlo
+- Ordenarlo y mostrarlo
+- Mostrar su longitud
+- Buscar algun elemento
+*/ 

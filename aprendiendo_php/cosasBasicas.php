@@ -470,7 +470,7 @@
             echo holaMundo();
         ?>
 
-        <!-- Funciones variables --------------------------------------------------------------------->    
+        <!-- Funciones variables, includes y requiere --------------------------------------------------------------------->    
         <?php
                     function buenosDias(){
                 return "<h1>Hola! Buenos días :)</h1>";
@@ -488,7 +488,198 @@
 
             $miFuncion = "buenas".$horario;
             echo $miFuncion();
-        ?></body>   
+
+            // Debuggear
+            $nombre = "Victor Robles";
+            var_dump($nombre);
+
+            // Fechas
+            echo date('d-m-Y');
+            echo "<br/>";
+            echo time();
+
+            // Matematicas
+            echo "<br/>";
+            echo "Raiz cuadrada de 10: ".sqrt(10);
+
+            echo "<br/>";
+            echo "Número aleatorio entre 10 y 40: ".rand(10,40);
+
+            echo "<br/>";
+            echo "Número pi: ".pi();
+
+            echo "<br/>";
+            echo "Redondear: ".round(7.891234, 1);
+
+            // Más funciones generales
+            echo "<br/>";
+            echo gettype($nombre);
+
+            // Detectar tipado
+            echo "<br/>";
+            if (is_string($nombre)) {
+                echo "Esa variable es un string";
+            }
+
+            echo "<br/>";
+            if (!is_float($nombre)) {
+                echo "La variable nombre no es un numero con decimales";
+            }
+
+            // Comprobar si existe una variable
+            echo "<br/>";
+            if (isset($nombre)) {
+                echo "La variable existe";
+            } else {
+                echo "La variable no existe";
+            }
+
+            // Limpar espacios
+            echo "<br/>";
+            $frase = "   mi contenido   ";
+            var_dump(trim($frase));
+
+            // Eliminar variables / indices
+            $year = 2020;
+            unset($year);
+
+            // Comprobar variable vacia
+            $texto = " ff ";
+
+            if (empty(trim($texto))) {
+                echo "La variable texto esta vacia";
+            } else {
+                echo "La variable texto TIENE CONTENIDO";
+            }
+
+            echo "<br/>";
+
+            // Contar caracteres de un string
+            $cadena = "12345";
+            echo strlen($cadena);
+
+            echo "<br/>";
+
+            // Encontrar caracter
+            $frase = "La vida es bella";
+            echo strpos($frase, "i32313");
+            echo "<br/>";
+
+            // Reemplazar palabras de un string
+            $frase = str_replace("vida", "moto", $frase);
+            echo $frase;
+            echo "<br/>";
+
+            // MAYUSCULAS Y minusculas
+            echo strtolower($frase);
+            echo "<br/>";
+            echo strtoupper($frase);
+            echo "<br/><br/><hr/>";
+        ?>   
+
+        <!-- Arrays --------------------------------------------------------------------->  
+        <?php
+            /*
+            ARRAYS
+            Un array es una coleccion o un conjunto de datos/valores, bajo un unico nombre.
+            Para acceder a esos valores podemos usar un indice numero o alfanumerico.
+            */
+
+            $pelicula = "Batman";
+            $peliculas = array('Batman', 'Spiderman', 'El señor de los anillos');
+            $cantantes = ['2pac', 'Drake', 'Jennifer Lopez'];
+
+            echo $peliculas[0];
+            echo "<br>";
+            echo $cantantes[2];
+      
+            // Array asociativo
+            $personas = array(
+                'nombre'    => 'Victor',
+                'apellidos' => 'Robles',
+                'web'       => 'victorroblesweb.es'
+            );
+
+            echo $personas['apellidos'];
+
+
+            // Recorrer con FOR
+            echo "<h1>Listado de peliculas</h1>";
+
+            echo "<ul>";
+
+            for ($i = 0; $i < count($peliculas); $i++) {
+                echo "<li>".$peliculas[$i]."</li>";
+            }
+
+            echo "</ul>";
+
+            // Recorrer con Foreach
+            echo "<h1>Listado de cantantes</h1>";
+
+            echo "<ul>";
+            foreach ($cantantes as $cantante) {
+                echo "<li>".$cantante."</li>";
+            }
+            echo "</ul>";
+
+            // Arrays multidimensionales
+            $contactos = array(
+                array(
+                    'nombre' => 'Antonio',
+                    'email'  => 'antonio@antonio.com'
+                ),
+                array(
+                    'nombre' => 'Luis',
+                    'email'  => 'luis@luis.com'
+                ),
+                array(
+                    'nombre' => 'Salvador',
+                    'email'  => 'salva@salva.com'
+                )
+            );
+
+            var_dump($contactos);
+            echo $contactos[1]['nombre'];
+            foreach ($contactos as $key => $contacto) {
+                var_dump($contacto);
+            }
+            foreach ($contactos as $key => $contacto) {
+                var_dump($contacto['nombre']);
+            }
+            echo "<br/>";
+            
+            $cantantes = ['2pac', 'Drake', 'Jennifer Lopez', 'Alfredo'];
+            $numeros = [1, 2, 5, 8, 3, 4];
+
+            // Ordenar
+            sort($numeros);
+            var_dump($numeros);
+
+            // Añadir elementos array
+            $cantantes[] = "Natos";
+            array_push($cantantes, "Waor");
+
+            // Eliminar elementos array
+            array_pop($cantantes);
+            unset($cantantes[2]);
+
+            // Aleatorio
+            $indice = array_rand($cantantes);
+            echo $cantantes[$indice];
+
+            // Dar la vuelta
+            var_dump(array_reverse($numeros));
+
+            // Buscar dentro de un array
+            $resultado = array_search('Alfredo', $cantantes);
+            var_dump($resultado);
+
+            // Contar numero de elementos
+            echo sizeof($cantantes);
+            echo "<br/><hr/>";
+        ?>
+
         
 
 
