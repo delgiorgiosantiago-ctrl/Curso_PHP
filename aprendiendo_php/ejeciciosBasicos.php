@@ -122,4 +122,156 @@ y que haga lo siguiente:
 - Ordenarlo y mostrarlo
 - Mostrar su longitud
 - Buscar algun elemento
-*/ 
+*/
+// FUNCIONES
+function mostrarArray($numeros) {
+    $resultado = "";
+
+    foreach ($numeros as $numero) {
+        // $resultado = $resultado.$numero."<br/>";
+        $resultado .= $numero."<br/>";
+    }
+
+    return $resultado;
+}
+
+    // Crear el array
+    $numeros = array(11, 44, 55, 77, 23, 9, 97, 67);
+
+    // Recorrer y mostrar
+    echo "<h1>Recorrer y mostrar</h1>";
+    echo mostrarArray($numeros);
+
+    // Ordenarlo y mostrarlo
+    echo "<h1>Ordenar y mostrar</h1>";
+
+    sort($numeros);
+    echo mostrarArray($numeros);
+
+    // Mostrar longitud
+    echo "<h1>Longitud del array</h1>";
+    echo "La longitud del array es: " . count($numeros);
+
+
+    // Busqueda en el array
+    if (isset($_GET['numero'])) {
+
+    $busqueda = $_GET['numero'];
+
+    echo "<h1>Buscar en el array el número $busqueda</h1>";
+
+    $search = array_search($busqueda, $numeros);
+
+    if (!empty($search)) {
+        echo "<h4>El numero buscado existe en el array, en el indice: $search</h4>";
+    } else {
+        echo "No existe el numero buscado";
+    }
+}
+
+// Ejercicio 2
+    /*
+    Escribir un programa con PHP que añada valores a un array mientras que su
+    longitud sea menor a 120 y luego mostrarlo por pantalla.
+    */
+
+    $coleccion = array();
+
+    for ($i = 0; $i < 120; $i++) {
+        array_push($coleccion, "elemento-" . $i);
+    }
+
+    var_dump($coleccion);
+
+// Ejercicio 3
+    /*
+    Programa que compruebe si una variable esta vacia y si está vacia,
+    rellenarla con texto en minusculas y mostrarlo en mayusculas y negrita.
+    */
+
+    $texto = "";
+
+    if (empty($texto)) {
+        $texto = "hola yo soy el relleno de la variable texto";
+        $textoMAYUS = strtoupper($texto);
+
+        echo "<strong>$textoMAYUS</strong>";
+    } else {
+        echo "La variable tiene este contenido dentro: " . $texto;
+    }
+
+// Ejercicio 4
+    /*
+    Crear un script en php que tenga 4 variables, una de tipo array,
+    otra de tipo string, otra int y otra booleana y que imprima un mensaje
+    segun el tipo de variable que sea.
+    */
+
+    $matriz = array("hola mundo", 88);
+    $titulo = "Master en PHP";
+    $numero = 77;
+    $verdadero = true;
+
+    if (is_array($matriz)) {
+        echo "<h1>El array es un array</h1>";
+    }
+
+    if (is_string($titulo)) {
+        echo "<h1>$titulo</h1>";
+    }
+
+    if (is_integer($numero)) {
+        echo "<h1>$numero</h1>";
+    }
+
+    if (is_bool($verdadero)) {
+        echo "El booleano es verdadero";
+    }
+
+// Ejercicio 5
+    /*
+    Crear un array con el contenido de la tabla:
+
+    ACCION      AVENTURA        DEPORTES
+    GTA         ASSASINS        FIFA 19
+    COD         CRASH           PES 19
+    PUBG        Prince of persia MOTO GP 19
+
+    Cada columna debe ir en un fichero separado (includes).
+    */
+
+    $tabla = array(
+        "ACCION" => array("GTA 5", "Call of Duty", "PUBG"),
+        "AVENTURA" => array("Assasins Creed", "Crash Bandicoot", "Prince of Persia"),
+        "DEPORTES" => array("Fifa 19", "PES 19", "Moto G 19")
+    );
+
+    $categorias = array_keys($tabla);
+    ?>
+
+    <table border="1">
+        <tr>
+            <?php foreach ($categorias as $categoria): ?>
+                <th><?= $categoria ?></th>
+            <?php endforeach; ?>
+        </tr>
+
+        <tr>
+            <td><?= $tabla['ACCION'][0] ?></td>
+            <td><?= $tabla['AVENTURA'][0] ?></td>
+            <td><?= $tabla['DEPORTES'][0] ?></td>
+        </tr>
+
+        <tr>
+            <td><?= $tabla['ACCION'][1] ?></td>
+            <td><?= $tabla['AVENTURA'][1] ?></td>
+            <td><?= $tabla['DEPORTES'][1] ?></td>
+        </tr>
+
+        <tr>
+            <td><?= $tabla['ACCION'][2] ?></td>
+            <td><?= $tabla['AVENTURA'][2] ?></td>
+            <td><?= $tabla['DEPORTES'][2] ?></td>
+        </tr>
+    </table>
+
